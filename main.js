@@ -20,6 +20,19 @@ const contEl = document.querySelector('.counter');
 console.log(numberEl, buttonEl, clueEl, contEl);
 
 
+const counter = {
+    initial: 0,
+    current: 0,
+    min: 0,
+    increase: function () {
+        if (this.current <= this.max) {
+            this.current += 1;
+        }
+    },
+}
+
+
+
 //La función sobre el botón realizará varias acciones
     //Comparar el número introducido por la usuaria con el número aleatorio generado
         //Si el número es menor, imprimir un mensaje en pantalla: "Prueba un número más alto"
@@ -28,8 +41,20 @@ console.log(numberEl, buttonEl, clueEl, contEl);
     //Accionar el contador y sumar uno cada vez que la usuaria pulse el botón
 
 function buttonClickHandler(event) {
-    event.preventDefault;
+    event.preventDefault();
     console.log('Listener is working');
+    console.log(numberEl.value);
+    let comparedNumber = parseInt(numberEl.value);
+    if (comparedNumber === randomNumber) {
+        clueEl.innerHTML = "ERES UNA CAMPEONA!"
+    } else if (comparedNumber > randomNumber) {
+        clueEl.innerHTML = "Prueba un número más bajo"
+    } else {
+        clueEl.innerHTML = "Prueba un número más alto";
+    }
+    
+    counter.increase();
+    console.log(counter.current);
 }
 
 //Poner un lístener sobre el botón
