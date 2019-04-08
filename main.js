@@ -27,5 +27,10 @@ console.log(numberEl, buttonEl, clueEl, contEl);
         //Si acierta, imprimir un mensaje en pantalla: "ERES UNA CAMPEONA!"
     //Accionar el contador y sumar uno cada vez que la usuaria pulse el botón
 
+function buttonClickHandler(event) {
+    event.preventDefault;
+    console.log('Listener is working');
+}
 
 //Poner un lístener sobre el botón
+buttonEl.addEventListener('click', buttonClickHandler);
