@@ -11,10 +11,14 @@ function randomNum() {
 const randomNumber = randomNum(100);
 console.log(randomNumber);
 
-//Guardar el elemento input que contiene el número de la usuaria. 
+//Guardar el elemento input que contiene el número de la usuaria, el botón, el párrafo y el contador.
 
 const numberEl = document.querySelector('.number__input');
-console.log(numberEl);
+const buttonEl = document.querySelector('.number__submit');
+const clueEl =  document.querySelector('.clue');
+const contEl = document.querySelector('.counter');
+console.log(numberEl, buttonEl, clueEl, contEl);
+
 
 //La función sobre el botón realizará varias acciones
     //Comparar el número introducido por la usuaria con el número aleatorio generado
