@@ -25,12 +25,9 @@ const counter = {
     current: 0,
     min: 0,
     increase: function () {
-        if (this.current <= this.max) {
-            this.current += 1;
-        }
+        return this.current += 1;
     },
 }
-
 
 
 //La función sobre el botón realizará varias acciones
@@ -49,12 +46,15 @@ function buttonClickHandler(event) {
         clueEl.innerHTML = "ERES UNA CAMPEONA!"
     } else if (comparedNumber > randomNumber) {
         clueEl.innerHTML = "Prueba un número más bajo"
-    } else {
+    } else if (comparedNumber < randomNumber) {
         clueEl.innerHTML = "Prueba un número más alto";
+    } else {
+        clueEl.innerHTML = "Escribe un número y dale a prueba";
     }
     
     counter.increase();
-    console.log(counter.current);
+    contEl.innerHTML = `${counter.current}`;
+
 }
 
 //Poner un lístener sobre el botón
