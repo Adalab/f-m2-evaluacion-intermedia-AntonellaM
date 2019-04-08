@@ -37,13 +37,10 @@ const counter = {
         //Si acierta, imprimir un mensaje en pantalla: "ERES UNA CAMPEONA!"
     //Accionar el contador y sumar uno cada vez que la usuaria pulse el botón
 
-function buttonClickHandler(event) {
-    event.preventDefault();
-    console.log('Listener is working');
-    console.log(numberEl.value);
+function checkNumber () {
     let comparedNumber = parseInt(numberEl.value);
     if (comparedNumber === randomNumber) {
-        clueEl.innerHTML = "ERES UNA CAMPEONA!"
+        clueEl.innerHTML = "¡HAS GANADO, CAMPEONA!"
     } else if (comparedNumber > randomNumber) {
         clueEl.innerHTML = "Prueba un número más bajo"
     } else if (comparedNumber < randomNumber) {
@@ -51,10 +48,13 @@ function buttonClickHandler(event) {
     } else {
         clueEl.innerHTML = "Escribe un número y dale a prueba";
     }
-    
+}
+
+function buttonClickHandler(event) {
+    event.preventDefault();
+    checkNumber();
     counter.increase();
     contEl.innerHTML = `${counter.current}`;
-
 }
 
 //Poner un lístener sobre el botón
