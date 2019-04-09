@@ -33,7 +33,6 @@ function buttonClickHandler(event) {
     checkNumber();
     counter += 1;
     contEl.innerHTML = `${counter}`;
-
 }
 
 buttonEl.addEventListener('click', buttonClickHandler);
