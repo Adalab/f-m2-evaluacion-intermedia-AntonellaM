@@ -3,6 +3,7 @@
 const randomNumber = randomNum(100);
 const numberEl = document.querySelector('.number__input');
 const buttonEl = document.querySelector('.number__submit');
+const resetEl = document.querySelector('.number__reset');
 const clueEl =  document.querySelector('.clue');
 const contEl = document.querySelector('.counter');
 let counter = 0;
@@ -41,4 +42,13 @@ function buttonClickHandler(event) {
     checkNumber();
 }
 
+function resetClickHandler(event) {
+    event.preventDefault();
+    numberEl.value = "";
+    counter = 0;
+    contEl.innerHTML = `${counter}`;
+    clueText("Escribe un número y dale a prueba");
+}
+
 buttonEl.addEventListener('click', buttonClickHandler);
+resetEl.addEventListener('click', resetClickHandler);
