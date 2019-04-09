@@ -9,14 +9,7 @@ const clueEl =  document.querySelector('.clue');
 const contEl = document.querySelector('.counter');
 console.log(numberEl, buttonEl, clueEl, contEl);
 
-const counter = {
-    initial: 0,
-    current: 0,
-    min: 0,
-    increase: function () {
-        return this.current += 1;
-    },
-}
+let counter = 0;
 
 function randomNum() {
     return Math.ceil(Math.random() * 100);
@@ -38,8 +31,9 @@ function checkNumber () {
 function buttonClickHandler(event) {
     event.preventDefault();
     checkNumber();
-    counter.increase();
-    contEl.innerHTML = `${counter.current}`;
+    counter += 1;
+    contEl.innerHTML = `${counter}`;
+
 }
 
 buttonEl.addEventListener('click', buttonClickHandler);
