@@ -21,6 +21,10 @@ function checkNumber () {
     let comparedNumber = parseInt(numberEl.value);
     if (comparedNumber === randomNumber) {
         clueText("¡HAS GANADO, CAMPEONA!");
+    } else if (comparedNumber < 0 && comparedNumber < randomNumber) {
+        clueText("El número no puede ser negativo");
+    } else if (comparedNumber > 100 && comparedNumber > randomNumber) {
+        clueText("No te compliques, el número está entre 0 y 100");
     } else if (comparedNumber > randomNumber) {
         clueText("Prueba un número más bajo");
     } else if (comparedNumber < randomNumber) {
