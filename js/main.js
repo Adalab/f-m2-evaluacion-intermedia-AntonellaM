@@ -1,5 +1,6 @@
 'use strict';
 
+const randomNum = () => {Math.ceil(Math.random() * 100)};
 const randomNumber = randomNum(100);
 const numberEl = document.querySelector('.number__input');
 const buttonEl = document.querySelector('.number__submit');
@@ -10,13 +11,31 @@ let counter = 0;
 
 console.log(randomNumber);
 
-function randomNum() {
-    return Math.ceil(Math.random() * 100);
-}
+const clueText = (text) => {clueEl.innerHTML = text};
 
-function clueText(text) {
-    clueEl.innerHTML = text;
-}
+
+const buttonClickHandler = (event) => {
+    event.preventDefault();
+    counter += 1;
+    contEl.innerHTML = counter;
+    checkNumber();
+};
+
+const resetClickHandler = (event) => {
+    event.preventDefault();
+    numberEl.value = "";
+    counter = 0;
+    contEl.innerHTML = `${counter}`;
+    clueText("Escribe un número y dale a prueba");
+};
+
+// function randomNum() {
+//     return Math.ceil(Math.random() * 100);
+// }
+
+// function clueText(text) {
+//     clueEl.innerHTML = text;
+// }
 
 function checkNumber () {
     let comparedNumber = parseInt(numberEl.value);
@@ -35,20 +54,20 @@ function checkNumber () {
     }
 }
 
-function buttonClickHandler(event) {
-    event.preventDefault();
-    counter += 1;
-    contEl.innerHTML = `${counter}`;
-    checkNumber();
-}
+// function buttonClickHandler(event) {
+//     event.preventDefault();
+//     counter += 1;
+//     contEl.innerHTML = counter;
+//     checkNumber();
+// }
 
-function resetClickHandler(event) {
-    event.preventDefault();
-    numberEl.value = "";
-    counter = 0;
-    contEl.innerHTML = `${counter}`;
-    clueText("Escribe un número y dale a prueba");
-}
+// function resetClickHandler(event) {
+//     event.preventDefault();
+//     numberEl.value = "";
+//     counter = 0;
+//     contEl.innerHTML = `${counter}`;
+//     clueText("Escribe un número y dale a prueba");
+// }
 
 buttonEl.addEventListener('click', buttonClickHandler);
 resetEl.addEventListener('click', resetClickHandler);
